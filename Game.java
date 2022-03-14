@@ -19,6 +19,11 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    
+    public static void main(String[]args){
+        Game game = new Game();
+        game.play();
+    }
         
     /**
      * Create the game and initialise its internal map.
@@ -34,30 +39,90 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room entrance, diningRoom, kitchen, kitchenBathroom, livingRoom, firstFloorCloset,hallway,library,masterBedroom,masterBathroom,office,secondFloorCloset,basement, laundry, utilityCloset, dungeon ;
       
-        // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        
+        //first floor rooms
+        entrance = new Room("main entrance of the house");
+        diningRoom = new Room("dining room");
+        kitchen = new Room("kitchen room");
+        kitchenBathroom = new Room("kitchen's bathroom");
+        livingRoom = new Room("living room");
+        firstFloorCloset = new Room("a closet");
+        
+        //Second floor rooms
+        hallway = new Room("second floor hallway");
+        library = new Room("a library");
+        masterBedroom = new Room("the master bedroom");
+        masterBathroom = new Room("the master bathroom");
+        office = new Room("office room");
+        secondFloorCloset = new Room("a closet");
+        
+        //0 floor rooms
+        basement = new Room("the basement");
+        laundry = new Room("the laundry room");
+        utilityCloset = new Room(" a utility closet");
+        dungeon = new Room ("a dungeon");
+        
         
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        entrance.setExit("up", hallway);
+        entrance.setExit("down", basement);
+        entrance.setExit("west", diningRoom);
+        entrance.setExit("east", livingRoom);
+        
+        diningRoom.setExit("east", entrance);
+        diningRoom.setExit("north", kitchen);
+        
+        
+        kitchen.setExit("south", diningRoom);
+        kitchen.setExit("east", kitchenBathroom);
+        
+        kitchenBathroom.setExit("south", livingRoom);
+        kitchenBathroom.setExit("west", kitchen);
+        
+        livingRoom.setExit("north", kitchenBathroom);
+        livingRoom.setExit("east", entrance);
+        livingRoom.setExit("west", firstFloorCloset);
+        
+        
+        hallway.setExit("down", entrance);
+        hallway.setExit("north", library);
+        hallway.setExit("west", office);
+        hallway.setExit("east", masterBedroom);
+        
+        office.setExit("north", secondFloorCloset);
+        office.setExit("east", hallway);
+        
+        secondFloorCloset.setExit("south", office);
+        
+        library.setExit("south", hallway);
+        
+        masterBedroom.setExit("north", masterBathroom);
+        masterBedroom.setExit("west", hallway);
+        
+        
+        masterBathroom.setExit("south", masterBedroom);
+        
+        
+        basement.setExit("up", entrance);
+        basement.setExit("east", laundry);
+        basement.setExit("south", utilityCloset);
+        
+        laundry.setExit("west", basement);
+        
+        utilityCloset.setExit("north", basement);
+        
+        dungeon.setExit("up", basement);
+        
+        
+        
+        
+        
+        
+        
 
-        theater.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        currentRoom = entrance;  // start game outside
     }
 
     /**
