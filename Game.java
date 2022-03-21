@@ -39,30 +39,66 @@ public class Game
      */
     private void createRooms()
     {
-        Room entrance, diningRoom, kitchen, kitchenBathroom, livingRoom, firstFloorCloset,hallway,library,masterBedroom,masterBathroom,office,secondFloorCloset,basement, laundry, utilityCloset, dungeon ;
+        //first floor rooms
+        Room entrance, diningRoom, kitchen, kitchenBathroom, livingRoom, firstFloorCloset,
+        //second floor rooms
+        hallway,library,masterBedroom,masterBathroom,office,secondFloorCloset,
+        //third floor rooms
+        basement, laundry, utilityCloset, dungeon ;
       
+        //first floor items
+        Item entranceMatch, dinningBattery, kitchenKnife, kitchenbathroomKey, livingroomNewspaper, firstfloorclosetMatch,
+        //second floor items
+        hallwayPainting, libraryBook, masterbedroomCarKeys, masterbathroomKey, officeGun, secondfloorclosetShovel,
+        //0 floor items
+        basementBottle, laundrySoap, utilityclosetWatch, dungeonBones;
+        
+        // initialise first floor items
+        entranceMatch = new Item ("A Match: \n To light the torch", 1);
+        dinningBattery = new Item ("A Car battery:\n A little scratched up but appears to be in good condition", 300);
+        kitchenKnife = new Item ("A bloody kitchen knife:\n Maybe it's ketchup on the knife? Could be used a weapon", 10);
+        kitchenbathroomKey = new Item("Black Key:\n A random key, I wonder what it can open..", 3);
+        livingroomNewspaper = new Item ("The Dark meadows Daily Newspaper:\n It's dated March 21st 1967", 5);
+        firstfloorclosetMatch = new Item ("A Match: \n To light the torch", 1);
+        
+        // initialise second floor items
+        hallwayPainting = new Item ("A Portrait Painting:\n Looks like it's a painting of an old man \n why does it feel like his eyes are follwing me?", 10);
+        libraryBook = new Item ("Rituals of the Undead Book:\n the book is open with pages torn off", 15);
+        masterbedroomCarKeys = new Item ("Car Keys:\n Looks like keys for an old truck", 3);
+        masterbathroomKey = new Item ("Red Key:\n A random key, I wonder what it can open..", 3);
+        officeGun = new Item ("Old Rusty Gun:\n Looks old but working and loaded", 5);
+        secondfloorclosetShovel = new Item ("Bloody shovel:\n Is that blood or rust?", 25);
+        
+        // initialise 0 floor items
+        basementBottle = new Item ("Beer Bottle:\n A dusty old bottle with something inside", 5);
+        laundrySoap = new Item ("Bar of Soap:\n The only thing clean here", 2);
+        utilityclosetWatch = new Item ("A broken Pocket Watch:\n I guess telling time does not matter right now", 2);
+        dungeonBones = new Item ("A Pile of Bones:\n I hope those aren't human bones...", 20);
+        
+        
+        
         
         //first floor rooms
-        entrance = new Room("main entrance of the house");
-        diningRoom = new Room("dining room");
-        kitchen = new Room("kitchen room");
-        kitchenBathroom = new Room("kitchen's bathroom");
-        livingRoom = new Room("living room");
-        firstFloorCloset = new Room("a closet");
+        entrance = new Room("main entrance of the house", entranceMatch);
+        diningRoom = new Room("dining room", dinningBattery);
+        kitchen = new Room("kitchen room",kitchenKnife);
+        kitchenBathroom = new Room("kitchen's bathroom", kitchenbathroomKey);
+        livingRoom = new Room("living room",livingroomNewspaper);
+        firstFloorCloset = new Room("a closet",firstfloorclosetMatch);
         
         //Second floor rooms
-        hallway = new Room("second floor hallway");
-        library = new Room("a library");
-        masterBedroom = new Room("the master bedroom");
-        masterBathroom = new Room("the master bathroom");
-        office = new Room("office room");
-        secondFloorCloset = new Room("a closet");
+        hallway = new Room("second floor hallway", hallwayPainting);
+        library = new Room("a library", libraryBook);
+        masterBedroom = new Room("the master bedroom", masterbedroomCarKeys);
+        masterBathroom = new Room("the master bathroom", masterbathroomKey);
+        office = new Room("office room", officeGun);
+        secondFloorCloset = new Room("a closet", secondfloorclosetShovel);
         
         //0 floor rooms
-        basement = new Room("the basement");
-        laundry = new Room("the laundry room");
-        utilityCloset = new Room(" a utility closet");
-        dungeon = new Room ("a dungeon");
+        basement = new Room("the basement", basementBottle);
+        laundry = new Room("the laundry room", laundrySoap);
+        utilityCloset = new Room(" a utility closet", utilityclosetWatch);
+        dungeon = new Room ("a dungeon", dungeonBones);
         
         
         // initialise room exits
