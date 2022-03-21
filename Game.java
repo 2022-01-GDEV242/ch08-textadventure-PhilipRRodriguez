@@ -183,12 +183,21 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+                
+            case LOOK:
+                look();
+                break;
+            
         }
         return wantToQuit;
     }
 
     // implementations of user commands:
 
+    private void look()
+    {
+        System.out.println("To be added!");
+    }
     /**
      * Print out some help information.
      * Here we print some stupid, cryptic message and a list of the 
