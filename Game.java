@@ -187,7 +187,11 @@ public class Game
             case LOOK:
                 look();
                 break;
-            
+                
+            case EAT:
+                eat();
+                break;
+                
         }
         return wantToQuit;
     }
@@ -197,6 +201,10 @@ public class Game
     private void look()
     {
         System.out.println("To be added!");
+    }
+    private void eat()
+    {
+        System.out.println("You have eaten now and you are no hungry any more");
     }
     /**
      * Print out some help information.
