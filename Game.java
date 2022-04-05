@@ -13,6 +13,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Room prevRoom;
     
     public static void main(String[]args){
         Game game = new Game();
@@ -199,6 +200,7 @@ dungeon = addItems(dungeon,dungeonItem);
         
 
         currentRoom = entrance;  // start game outside
+        prevRoom = null;
     }
 
     private Room addItems(Room room, Item items[]){
@@ -274,6 +276,10 @@ dungeon = addItems(dungeon,dungeonItem);
                 eat();
                 break;
                 
+            case BACK:
+                back();
+                break;
+                
         }
         return wantToQuit;
     }
@@ -320,11 +326,16 @@ dungeon = addItems(dungeon,dungeonItem);
             System.out.println("There is no door!");
         }
         else {
+            prevRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
     }
 
+    private void back(){
+        currentRoom = prevRoom;
+        System.out.println("You went back to the previous room!\n\n" +currentRoom.getLongDescription());
+    }
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.
