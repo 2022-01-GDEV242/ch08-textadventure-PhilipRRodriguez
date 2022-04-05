@@ -30,7 +30,7 @@ public class Item
      */
     public String getShortDescription()
     {
-        String shortDescription = "Item Description:\n" + this.itemDescription + "\n" + "Item Weight:\n" + this.weight;
+        String shortDescription = "Item Description:\n" + this.itemDescription + "\n" + "Item Weight:\n" + this.weight + "\n";
         return shortDescription;
     }
 }

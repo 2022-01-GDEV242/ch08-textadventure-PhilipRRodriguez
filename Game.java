@@ -27,7 +27,8 @@ public class Game
         createRooms();
         parser = new Parser();
     }
-
+					
+    
     /**
      * Create all the rooms and link their exits together.
      */
@@ -48,53 +49,98 @@ public class Game
         basementBottle, laundrySoap, utilityclosetWatch, dungeonBones;
         
         // initialise first floor items
-        entranceMatch = new Item ("A Match: \n To light the torch", 1);
-        dinningBattery = new Item ("A Car battery:\n A little scratched up but appears to be in good condition", 300);
-        kitchenKnife = new Item ("A bloody kitchen knife:\n Maybe it's ketchup on the knife? Could be used a weapon", 10);
-        kitchenbathroomKey = new Item("Black Key:\n A random key, I wonder what it can open..", 3);
-        livingroomNewspaper = new Item ("The Dark meadows Daily Newspaper:\n It's dated March 21st 1967", 5);
-        firstfloorclosetMatch = new Item ("A Match: \n To light the torch", 1);
+        Item entranceItem[] = { new Item ("A Match: \n To light the torch", 1),
+                                new Item ("Polaroid:\n Looks like a happy family", 1)};
+                                
+        Item dinningItem[] = { new Item ("A Car battery:\n A little scratched up but appears to be in good condition", 300)};
+        
+        
+        Item kitchenItem[] = { new Item ("A bloody kitchen knife:\n Maybe it's ketchup on the knife? Could be used a weapon", 10),
+                               new Item ("A rusty spoon:\n I wonder how old these are", 5)};
+          
+                               
+        Item kitchenBathroomItem[] = {new Item("Black Key:\n A random key, I wonder what it can open..", 3)};
+        
+        
+        Item livingRoomItem[] = {new Item ("The Dark meadows Daily Newspaper:\n It's dated March 21st 1967", 5)};
+                                
+        Item firstFloorClosetItem[] = {new Item ("A Match: \n To light the torch", 1)};
+        
+        
         
         // initialise second floor items
-        hallwayPainting = new Item ("A Portrait Painting:\n Looks like it's a painting of an old man \n why does it feel like his eyes are follwing me?", 10);
-        libraryBook = new Item ("Rituals of the Undead Book:\n the book is open with pages torn off", 15);
-        masterbedroomCarKeys = new Item ("Car Keys:\n Looks like keys for an old truck", 3);
-        masterbathroomKey = new Item ("Red Key:\n A random key, I wonder what it can open..", 3);
-        officeGun = new Item ("Old Rusty Gun:\n Looks old but working and loaded", 5);
-        secondfloorclosetShovel = new Item ("Bloody shovel:\n Is that blood or rust?", 25);
+        Item hallwayItem[] = {new Item ("A Portrait Painting:\n Looks like it's a painting of an old man \n why does it feel like his eyes are follwing me?", 10),
+                               new Item("An old wallet:\n looks empty and torn up", 3)};
+                               
+                               
+        Item libraryItem[] = {new Item ("Rituals of the Undead Book:\n the book is open with pages torn off", 15)};                  
+        
+        Item masterBedroomItem[] = {new Item ("Car Keys:\n Looks like keys for an old truck", 3)};
+        
+        Item masterBathroomItem[] = {new Item ("Red Key:\n A random key, I wonder what it can open..", 3)};
+        
+        Item officeItem[] = {new Item ("Old Rusty Gun:\n Looks old but working and loaded", 5)};
+        
+        Item secondFloorClosetItem [] = {new Item ("Bloody shovel:\n Is that blood or rust?", 25)};
+        
+        
         
         // initialise 0 floor items
-        basementBottle = new Item ("Beer Bottle:\n A dusty old bottle with something inside", 5);
-        laundrySoap = new Item ("Bar of Soap:\n The only thing clean here", 2);
-        utilityclosetWatch = new Item ("A broken Pocket Watch:\n I guess telling time does not matter right now", 2);
-        dungeonBones = new Item ("A Pile of Bones:\n I hope those aren't human bones...", 20);
+        Item basementItem[] = {new Item ("Beer Bottle:\n A dusty old bottle with something inside", 5)};
         
+        Item laundryItem[] = {new Item ("Bar of Soap:\n The only thing clean here", 2)};
+        
+        Item utilityClosetItem[] = {new Item ("A broken Pocket Watch:\n I guess telling time does not matter right now", 2)};
+        
+        Item dungeonItem[] = {new Item ("A Pile of Bones:\n I hope those aren't human bones...", 20)};
         
         
         
         //first floor rooms
-        entrance = new Room("the main entrance of the haunted house. \nThe entrance is covered in combwebs and bugs\n and what I hope to be just ketchup stains.", entranceMatch);
-        diningRoom = new Room("the dining room\n There is rotting food on the table and flies flying around the room", dinningBattery);
-        kitchen = new Room("the kitchen room\n the room is filled with the smell of rotten food and rusty utensils",kitchenKnife);
-        kitchenBathroom = new Room("the kitchen's bathroom\n Not the cleaniest bathroom, lets not stay here too long", kitchenbathroomKey);
-        livingRoom = new Room("the living room\n Can't believe people use to live here\n The TV is broken and filled with bones",livingroomNewspaper);
-        firstFloorCloset = new Room(" a closet\n it's dark in here, is anyone here?",firstfloorclosetMatch);
+        entrance = new Room("the main entrance of the haunted house. \nThe entrance is covered in combwebs and bugs\n and what I hope to be just ketchup stains.");
+        diningRoom = new Room("the dining room\n There is rotting food on the table and flies flying around the room");
+        kitchen = new Room("the kitchen room\n the room is filled with the smell of rotten food and rusty utensils");
+        kitchenBathroom = new Room("the kitchen's bathroom\n Not the cleaniest bathroom, lets not stay here too long");
+        livingRoom = new Room("the living room\n Can't believe people use to live here\n The TV is broken and filled with bones");
+        firstFloorCloset = new Room(" a closet\n it's dark in here, is anyone here?");
         
         //Second floor rooms
-        hallway = new Room("the second floor hallway\n I can hear things moving but don't see anything", hallwayPainting);
-        library = new Room("a library\n A nice room filled with combwebs\n oh and some books too..", libraryBook);
-        masterBedroom = new Room("the master bedroom\n A fancy bedframe is sitting in middle of the room\n everything else seems to be missing", masterbedroomCarKeys);
-        masterBathroom = new Room("the master bathroom\n this bathroom has seen better days \n I am trying to forget the smell", masterbathroomKey);
-        office = new Room(" the office room \n There is a lot of papers all around the desk and broken glass", officeGun);
-        secondFloorCloset = new Room("a closet\n Yep this is a closet, very interesting..", secondfloorclosetShovel);
+        hallway = new Room("the second floor hallway\n I can hear things moving but don't see anything");
+        library = new Room("a library\n A nice room filled with combwebs\n oh and some books too..");
+        masterBedroom = new Room("the master bedroom\n A fancy bedframe is sitting in middle of the room\n everything else seems to be missing");
+        masterBathroom = new Room("the master bathroom\n this bathroom has seen better days \n I am trying to forget the smell");
+        office = new Room(" the office room \n There is a lot of papers all around the desk and broken glass");
+        secondFloorCloset = new Room("a closet\n Yep this is a closet, very interesting..");
         
         //0 floor rooms
-        basement = new Room("the basement\n It's a very damp, dark and moist place\n What's crawling in the cornor?", basementBottle);
-        laundry = new Room("the laundry room \n For a place where things get cleaned, its not such a clean place", laundrySoap);
-        utilityCloset = new Room(" a utility closet\n Lots of loose cables and wiring. Does not look so safe", utilityclosetWatch);
-        dungeon = new Room ("a dungeon \n lots of bones, combwebs and claw marks", dungeonBones);
+        basement = new Room("the basement\n It's a very damp, dark and moist place\n What's crawling in the cornor?");
+        laundry = new Room("the laundry room \n For a place where things get cleaned, its not such a clean place");
+        utilityCloset = new Room(" a utility closet\n Lots of loose cables and wiring. Does not look so safe");
+        dungeon = new Room ("a dungeon \n lots of bones, combwebs and claw marks");
         
+        //add items to rooms
         
+entrance = addItems(entrance,entranceItem);
+diningRoom = addItems(diningRoom,dinningItem);
+kitchen = addItems(kitchen,kitchenItem);
+kitchenBathroom = addItems(kitchenBathroom,kitchenBathroomItem);
+livingRoom = addItems(livingRoom,livingRoomItem);
+firstFloorCloset = addItems(firstFloorCloset,firstFloorClosetItem);
+        
+hallway = addItems(hallway,hallwayItem);
+library = addItems(library,libraryItem);
+masterBedroom = addItems(masterBedroom, masterBedroomItem);
+masterBathroom = addItems(masterBathroom,masterBedroomItem);
+office = addItems(office,officeItem);
+secondFloorCloset = addItems(secondFloorCloset,secondFloorClosetItem);
+
+
+basement = addItems(basement,basementItem);
+laundry = addItems(laundry,laundryItem);
+utilityCloset = addItems(utilityCloset,utilityClosetItem);
+dungeon = addItems(dungeon,dungeonItem);
+
+
         // initialise room exits
         entrance.setExit("up", hallway);
         entrance.setExit("down", basement);
@@ -155,6 +201,12 @@ public class Game
         currentRoom = entrance;  // start game outside
     }
 
+    private Room addItems(Room room, Item items[]){
+        for (int i = 0; i < items.length; i++){
+            room.addItem(items[i]);
+        }
+        return room;
+    }
     /**
      *  Main play routine.  Loops until end of play.
      */
