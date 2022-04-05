@@ -1,18 +1,12 @@
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
+ *  This class is the main class of the "Haunted House" application. 
  * 
  *  To play this game, create an instance of this class and call the "play"
  *  method.
  * 
- *  This main class creates and initialises all the others: it creates all
- *  rooms, creates the parser and starts the game.  It also evaluates and
- *  executes the commands that the parser returns.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Philip Rodriguez
+ * @version 2022.04.04
  */
 
 public class Game 
@@ -79,26 +73,26 @@ public class Game
         
         
         //first floor rooms
-        entrance = new Room("main entrance of the house", entranceMatch);
-        diningRoom = new Room("dining room", dinningBattery);
-        kitchen = new Room("kitchen room",kitchenKnife);
-        kitchenBathroom = new Room("kitchen's bathroom", kitchenbathroomKey);
-        livingRoom = new Room("living room",livingroomNewspaper);
-        firstFloorCloset = new Room("a closet",firstfloorclosetMatch);
+        entrance = new Room("the main entrance of the haunted house. \nThe entrance is covered in combwebs and bugs\n and what I hope to be just ketchup stains.", entranceMatch);
+        diningRoom = new Room("the dining room\n There is rotting food on the table and flies flying around the room", dinningBattery);
+        kitchen = new Room("the kitchen room\n the room is filled with the smell of rotten food and rusty utensils",kitchenKnife);
+        kitchenBathroom = new Room("the kitchen's bathroom\n Not the cleaniest bathroom, lets not stay here too long", kitchenbathroomKey);
+        livingRoom = new Room("the living room\n Can't believe people use to live here\n The TV is broken and filled with bones",livingroomNewspaper);
+        firstFloorCloset = new Room(" a closet\n it's dark in here, is anyone here?",firstfloorclosetMatch);
         
         //Second floor rooms
-        hallway = new Room("second floor hallway", hallwayPainting);
-        library = new Room("a library", libraryBook);
-        masterBedroom = new Room("the master bedroom", masterbedroomCarKeys);
-        masterBathroom = new Room("the master bathroom", masterbathroomKey);
-        office = new Room("office room", officeGun);
-        secondFloorCloset = new Room("a closet", secondfloorclosetShovel);
+        hallway = new Room("the second floor hallway\n I can hear things moving but don't see anything", hallwayPainting);
+        library = new Room("a library\n A nice room filled with combwebs\n oh and some books too..", libraryBook);
+        masterBedroom = new Room("the master bedroom\n A fancy bedframe is sitting in middle of the room\n everything else seems to be missing", masterbedroomCarKeys);
+        masterBathroom = new Room("the master bathroom\n this bathroom has seen better days \n I am trying to forget the smell", masterbathroomKey);
+        office = new Room(" the office room \n There is a lot of papers all around the desk and broken glass", officeGun);
+        secondFloorCloset = new Room("a closet\n Yep this is a closet, very interesting..", secondfloorclosetShovel);
         
         //0 floor rooms
-        basement = new Room("the basement", basementBottle);
-        laundry = new Room("the laundry room", laundrySoap);
-        utilityCloset = new Room(" a utility closet", utilityclosetWatch);
-        dungeon = new Room ("a dungeon", dungeonBones);
+        basement = new Room("the basement\n It's a very damp, dark and moist place\n What's crawling in the cornor?", basementBottle);
+        laundry = new Room("the laundry room \n For a place where things get cleaned, its not such a clean place", laundrySoap);
+        utilityCloset = new Room(" a utility closet\n Lots of loose cables and wiring. Does not look so safe", utilityclosetWatch);
+        dungeon = new Room ("a dungeon \n lots of bones, combwebs and claw marks", dungeonBones);
         
         
         // initialise room exits
@@ -185,8 +179,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the Haunted House on Hill Lane");
+        System.out.println("Haunted House on Hill Lane is an adventure game");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -236,7 +230,7 @@ public class Game
 
     private void look()
     {
-        System.out.println("To be added!");
+        System.out.println("You look around but find nothing");
     }
     private void eat()
     {
