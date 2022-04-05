@@ -14,6 +14,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Room prevRoom;
+    private int timeLimit = 25;
     
     public static void main(String[]args){
         Game game = new Game();
@@ -28,7 +29,7 @@ public class Game
         createRooms();
         parser = new Parser();
     }
-					
+                    
     
     /**
      * Create all the rooms and link their exits together.
@@ -223,6 +224,10 @@ dungeon = addItems(dungeon,dungeonItem);
         while (! finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
+                if(timeLimit == 0){
+                    finished = true;
+                    System.out.println("You ran out of turns!\n");
+                }
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -238,6 +243,7 @@ dungeon = addItems(dungeon,dungeonItem);
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        System.out.println("Time Limit: You have " + timeLimit + " turns left");
     }
 
     /**
@@ -329,9 +335,15 @@ dungeon = addItems(dungeon,dungeonItem);
             prevRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            if(timeLimit != 0){
+                timeLimit = timeLimit - 1;
+            }
+            
+            if (timeLimit > 0){
+            System.out.println("Time Limit: You have " + timeLimit + " turns left");
+        }
         }
     }
-
     private void back(){
         currentRoom = prevRoom;
         System.out.println("You went back to the previous room!\n\n" +currentRoom.getLongDescription());
